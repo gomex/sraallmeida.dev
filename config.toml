@@ -1,6 +1,6 @@
 baseURL = "https://confident-bose-a90740.netlify.app"
 title = "Your title"
-themesDir = "../.."
+themesDir = "themes"
 theme = "m10c"
 paginate = 8
 
