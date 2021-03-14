@@ -1,103 +1,126 @@
-baseURL = "https://confident-bose-a90740.netlify.app"
-languageCode = "en"
-DefaultContentLanguage = "en"
-title = "Website of Jane Doe"
-theme = "hugo-theme-stack"
-summarylength = 10
-enableEmoji = true
-enableRobotsTXT = true
+languabaseurl: https://confident-bose-a90740.netlify.app
+languageCode: en-us
+theme: hugo-theme-stack
+paginate: 5
+title: Example Site
 
-# Enable Disqus
-#disqusShortname = ""
+# Change it to your Disqus shortname before using
+disqusShortname: hugo-theme-stack
 
-# Google Analytics
-#googleAnalytics = "UA-123-45"
+# GA Tracking ID
+googleAnalytics:
 
-# Syntax highlighting
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+# Theme i18n support
+# Available values: en, fr, id, ja, ko, pt-br, zh-cn
+DefaultContentLanguage: en
 
-[params]
-title = "I'm Jane Doe"
-author = "Jane Doe"
-#copyright = "2020-2021"
-description = "Call me Jane"
-profilePicture = "images/profile.jpg"
-keywords = ""
-favicon = "favicons/"
-# example ["css/custom.css"]
-customCss = []
-# example ["js/custom.js"]
-customJs = [] 
-mainSections = ["post"]
-images = ["images/site-feature-image.png"]
-doNotLoadAnimations = false
-# Form Spree Contact Form
-#contactFormAction = "https://formspree.io/f/your-form-hash-here"
-# Google Site Verify
-#googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-# indexDateFormat = "Mon, Jan 2, 2006"
-# listDateFormat = "Jan 2"
-# singleDateFormat = "Mon, Jan 2, 2006"
-# Commento Comments
-# CommentoURL = "https://commento.example.com/js/commento.js"
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
 
-[params.simpleAnalytics]
-# enable = true
-# customurl = "https://analytics.example.com"
+params:
+    mainSections:
+        - post
+    featuredImageField: image
+    rssFullContent: true
+    favicon:
 
-## Math settings
-[params.math]
-enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
-use = "katex"  # options: "katex", "mathjax". default is "katex".
+    footer:
+        since: 2020
+        customText:
 
-## Social links
-# use 'fab' when brand icons, use 'fas' when standard solid icons.
-[[params.socialIcons]]
-icon = "fab fa-linkedin"
-title = "Linkedin"
-url = "https://de.linkedin.com/"
+    dateFormat:
+        published: Jan 02, 2006
+        lastUpdated: Jan 02, 2006 15:04 MST
 
-[[params.socialIcons]]
-icon = "fab fa-github"
-title = "GitHub"
-url = "https://github.com/lxndrblz/anatole/"
+    sidebar:
+        emoji: 🍥
+        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        avatar:
+            local: true
+            src: img/avatar.png
 
-[[params.socialIcons]]
-icon = "fab fa-instagram"
-title = "instagram"
-url = "https://www.instagram.com/"
+    article:
+        math: false
+        license:
+            enabled: true
+            default: Licensed under CC BY-NC-SA 4.0
 
-[[params.socialIcons]]
-icon = "fas fa-envelope"
-title = "e-mail"
-url = "mailto:mail@example.com"
+    comments:
+        enabled: true
+        provider: disqus
 
-## Menu items
+        utterances:
+            repo:
+            issueTerm: pathname
+            label:
 
-[menu]
+        remark42:
+            host:
+            site:
+            locale:
 
-  [[menu.main]]
-  name = "Home"
-  identifier = "home"
-  weight = 100
-  url = "/"
+    widgets:
+        enabled:
+            - search
+            - archives
+            - tag-cloud
 
-  [[menu.main]]
-  name = "Posts"
-  weight = 200
-  identifier = "posts"
-  url = "/post/"
+        archives:
+            limit: 5
 
-  [[menu.main]]
-  name = "About"
-  weight = 300
-  identifier = "about"
-  url = "/about/"
+        tagCloud:
+            limit: 10
 
-  [[menu.main]]
-  name = "Contact"
-  weight = 400
-  identifier = "contact"
-  url = "/contact/"
+    opengraph:
+        twitter:
+            # Your Twitter username
+            site:
+
+            # Available values: summary, summary_large_image
+            card: summary_large_image
+
+    defaultImage:
+        opengraph:
+            enabled: false
+            local: false
+            src:
+
+    colorScheme:
+        # Display toggle
+        toggle: true
+
+        # Available values: auto, light, dark
+        default: auto
+
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+### Custom menu
+### See https://docs.stack.jimmycai.com/configuration/custom-menu
+### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+menu:
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          pre: home
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+
+        - name: categories
+          weight: 200
+
+markup:
+    highlight:
+        noClasses: false
